@@ -1,0 +1,14 @@
+-Math database that stores the difficulty of the problem and the problem itself.
+-Database of the score that you have reached.
+-Scoring will work based on a time limit of 10seconds if you fail 3 problems your game will end
+-We would calculate the difficulty of the problems based on the amount of operations in the problem or if there are number divisable by 10.
+-We would have a score system where you would start out at a medium difficulty and if you answer a problem you would earn rank points, if you get an answer incorrect you would be deducted problemvalue+50.
+-The more points that you earn the harder the problems will become.
+-The problems will be generated 
+-Easy problems will be worth 50 points,
+-Medium problems will be worth 100 points, 
+-Hard problems will be worth 200 points,
+-Extreme problems will be worth 500 points,
+-We would have to create a intelligent generator that would make the problems still solveable but difficult.
+-Rank will be re-evaluated based on how many problems you solved 
+-If your rank increased would reach 100 rank points that game your game would end.
