@@ -1,7 +1,7 @@
 -Math database that stores the difficulty of the problem and the problem itself.
 -Database of the score that you have reached.
 -Scoring will work based on a time limit of 10seconds if you fail 3 problems your game will end
--We would calculate the difficulty of the problems. If 
+-We would calculate the difficulty of the problems based on the amount of operations in the problem or if there are number divisable by 10.
 -We would have a score system where you would start out at a medium difficulty and if you answer a problem you would earn rank points, if you get an answer incorrect you would be deducted problemvalue+50.
 -The more points that you earn the harder the problems will become.
 -The problems will be generated 
