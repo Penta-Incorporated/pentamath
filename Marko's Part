@@ -1,0 +1,8 @@
+/*Takes the persons elo
+start at 1000 elo
+10 problem mode 50 problem mode and so on
+so percentage of problems solved would have 50 subtracted from it 
+and anything below a 50 would make you lose elo anything above would make you gain elo
+we would have a 50 multiplier on it*/
+
+//Code:
