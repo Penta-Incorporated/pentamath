@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <title>PentaMath</title>
+	<link rel='stylesheet' href='style/main.css'>
+	<link rel="shortcut icon" type="image/png" href="favicon.png"/>
+	<link rel="shortcut icon" type="image/png" href="favicon.png"/>
+	<script type="text/javascript" src="mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+
+<body>
+	
+	<div id='header'></div>
+	<hr />
+
+	<div id='content'>
+		<div id='question'></div>
+
+		<input id='ans' type='textfield' class='textfield' placeholder='Your Answer'><br />
+		<span class='button'>Submit</span>
+	</div>
+
+
+
+<script src='problemGen.js'></script>
+<script src='jquery.js'></script>
+<script type='text/javascript'>
+
+	var problem;
+
+	function testAnswer(){
+		var correct = eval(problem);
+		var guess = $('#ans').val();
+
+		return guess == correct;
+	}
+
+	$(function() {
+		problem = createProblem(1200);
+		$('#question').html(
+		'\\( ' + problem + ' \\)'
+		);
+		$('.button').on('click', function() {
+			console.log(testAnswer());
+		});
+  	});
+
+</script>
+</body>
+
+
+</html>
