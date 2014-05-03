@@ -20,21 +20,37 @@ we would have a 50 multiplier on it*/
     var createProblem = function(elo, input){
         var count = new Array();
         var operation = new Array();
-         for(var q = 0; q<Math.floor(elo/(600)); q++){
-             
-             operation[q] = Math.floor(Math.random()*4);
-             document.writeln(operation[q]); 
-             
-        }
-        
         for(var q = 0; q<Math.floor(elo/(400)); q++){
             
-            
             count[q] = Math.floor(Math.random()*(elo/10));
-            document.writeln(count[q]);
             
         }
-        
+        for(var q = 0; q<Math.floor(elo/(600)); q++){
+            var y = 0;
+            if(count[q]%10 === 0){
+                y = 4;
+            }
+            else{
+                y = 2;
+            }
+             operation[q] = operationArray[Math.floor(Math.random()*y)];
+             
+        }
+        for(var q = 0; q<operation.length+1; q++){
+            if(q === 0){
+               problem = count[q];
+            }
+            else{
+                problem += count[q];
+            }
+            if(q > 1){
+            }
+            else{
+                problem += operation[q];
+            }
+            
+        }
+        document.write(problem);
         var i = Math.floor(Math.random()*4);
         var j = Math.floor(Math.random()*elo);
         
