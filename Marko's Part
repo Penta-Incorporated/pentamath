@@ -7,7 +7,7 @@ we would have a 50 multiplier on it*/
 
 //Code:
 <script>
-    var elo = 1000;
+    var elo = 1200;
     var probAmount = 10;
     var temp;
     var problem;
@@ -19,15 +19,23 @@ we would have a 50 multiplier on it*/
 
     var createProblem = function(elo, input){
         var count = new Array();
-        for(var q = 0; q<((elo/500)*1.5); q++){
-            
+        
+        for(var q = 0; q<(elo/400); q++){
+            var eloSub = elo;
             count[q] = Math.floor(Math.random()*elo);
-            document.write(count[q]);
+            if(count%10 === 0){
+                eloSub = eloSub -200;
+            }
+            else{
+                eloSub = eloSub -400;
+            }
+            document.writeln(count[q]);
+            document.writeln(eloSub);
         }
         var i = Math.floor(Math.random()*4);
         var j = Math.floor(Math.random()*elo);
         
         
     };
-createProblem(0, 0);
+createProblem(elo, 0);
 </script>
