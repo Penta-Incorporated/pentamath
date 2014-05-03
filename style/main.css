@@ -1,0 +1,65 @@
+body{
+	position: relative;
+	margin: 0;
+	padding: 0;
+	background: ##F7F7F7;
+	font-family: Helvetica, Arial, Verdana, "Lucida Console";
+	font-size: 14;
+}
+
+a{
+	text-decoration: none;
+}
+
+#header{
+	position: relative;
+	height: 200px;
+	width: 100%;
+	background: #eee;
+	top: 0;
+	margin: 0;
+	padding: 0;
+}
+
+hr{
+	width: 100%;
+	border: none;
+	background: #444;
+	position: absolute;
+	height: 1px;
+	top: 191px;
+}
+
+.textfield{
+	height: 30px;
+	font-size: 1.5em;
+	font-family: "Lucida Grande";
+	width: 180px;
+	margin: 10px;
+	border-radius: 3px;
+	border: 1px solid #555;
+}
+
+.textfield:focus{
+	box-shadow: 0 0 6px 2px #3366FF;	
+	border: none;
+}
+
+.button{
+	width: 120px;
+	padding: 8px 6px 8px 6px;
+	border: none;
+	border:1px solid #dcdcdc;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	border-radius: 4px;
+	height: 60px;
+	font-weight: bold;
+	font-size: 16px;
+	background: #3366FF;
+	color: #eee;
+}
+
+.button:hover{
+	color: #3366FF;
+	background: #eee;
+}
