@@ -19,19 +19,22 @@ we would have a 50 multiplier on it*/
 
     var createProblem = function(elo, input){
         var count = new Array();
-        var eloSub = elo;
-        for(var q = 0; q<(elo/400); q++){
-            
-            count[q] = Math.floor(Math.random()*elo);
-            if(count[q]%10 === 0){
-                eloSub -= 100;
-            }
-            else{
-                eloSub -= 200;
-            }
-            document.writeln(count[q]);
-            document.writeln(eloSub);
+        var operation = new Array();
+         for(var q = 0; q<Math.floor(elo/(600)); q++){
+             
+             operation[q] = Math.floor(Math.random()*4);
+             document.writeln(operation[q]); 
+             
         }
+        
+        for(var q = 0; q<Math.floor(elo/(400)); q++){
+            
+            
+            count[q] = Math.floor(Math.random()*(elo/10));
+            document.writeln(count[q]);
+            
+        }
+        
         var i = Math.floor(Math.random()*4);
         var j = Math.floor(Math.random()*elo);
         
