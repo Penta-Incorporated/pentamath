@@ -6,3 +6,19 @@ and anything below a 50 would make you lose elo anything above would make you ga
 we would have a 50 multiplier on it*/
 
 //Code:
+<script>
+  var elo = 1000;
+  var probAmount = 10;
+  var temp;
+  var problem;
+  var operationArray = new Array();
+  
+  var createProblem = function(elo){
+      operationArray(0) === elo;
+  };
+  
+  operationArray(0) === "Swag";
+  document.write(operationArray(0));
+  createProblem("trees");
+  document.write(operationArray(0));
+</script>
