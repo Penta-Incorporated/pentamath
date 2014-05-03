@@ -1,0 +1,52 @@
+
+    var elo = 1200;
+    var probAmount = 10;
+    var temp;
+    var operationArray = new Array();
+    operationArray[0] = "+";
+    operationArray[1] = "-";
+    operationArray[2] = "*";
+    operationArray[3] = "/";
+
+    var createProblem = function(elo){
+	var problem;
+        var count = new Array();
+        var operation = new Array();
+        for(var q = 0; q<Math.floor(elo/(400)); q++){
+            
+            count[q] = Math.floor(Math.random()*(elo/10));
+            
+        }
+        for(var q = 0; q<Math.floor(elo/(600)); q++){
+            var y = 0;
+            if(count[q]%10 === 0){
+                y = 4;
+            }
+            else{
+                y = 2;
+            }
+             operation[q] = operationArray[Math.floor(Math.random()*y)];
+             
+        }
+        for(var q = 0; q < operation.length+1; q++){
+            if(q === 0){
+               problem = count[q];
+            }
+            else{
+                problem += count[q];
+            }
+            if(q > operation.length-1){
+            }
+            else{
+                problem += operation[q];
+            }
+            
+        }
+        return problem;
+        var i = Math.floor(Math.random()*4);
+        var j = Math.floor(Math.random()*elo);
+        
+        
+    };
+
+

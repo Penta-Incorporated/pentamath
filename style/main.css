@@ -1,9 +1,9 @@
-body{
+body {
 	position: relative;
 	margin: 0;
 	padding: 0;
 	background: ##F7F7F7;
-	font-family: Helvetica, Arial, Verdana, "Lucida Console";
+	font-family: Verdana;
 	font-size: 14;
 }
 
@@ -32,8 +32,7 @@ hr{
 
 .textfield{
 	height: 30px;
-	font-size: 1.5em;
-	font-family: "Lucida Grande";
+	font-size: 1.2em;
 	width: 180px;
 	margin: 10px;
 	border-radius: 3px;
@@ -45,21 +44,49 @@ hr{
 	border: none;
 }
 
-.button{
-	width: 120px;
-	padding: 8px 6px 8px 6px;
-	border: none;
-	border:1px solid #dcdcdc;
-	box-shadow:inset 0px 1px 0px 0px #ffffff;
-	border-radius: 4px;
-	height: 60px;
+.rbs-button {
+	cursor: pointer;
+	user-select: none;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+    display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	font-size: 18px;
+	font-family: Helvetica, Arial, Verdana, sans-serif;
+	margin: 3px;
+	}
+							 
+.rbs-modern-detail {
+	padding: 10px 30px 9px 30px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAkCAYAAABIdFAMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAHhJREFUeNo8jksKBCEMRJOyceFyYPqQfcu5j4ig+EPMmOmhs3hUZfEoiMgFIvooRLEwxqA79d5FQWitrScJaq1/7EoopQjWWoIYIyGlxJhzCrz3jJyzKPhQwRFCoEdFauE7bQGMc+6FvYp1ARtr7Vsrfj+z7/wKMABiSl9WcInYcgAAAABJRU5ErkJggg==);
+	background-repeat: repeat-x;
+	background-position: top;
+	text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+	filter: dropshadow(color=#979797, offx=0, offy=1);
+	font-size: 15px;
 	font-weight: bold;
-	font-size: 16px;
-	background: #3366FF;
-	color: #eee;
+	-webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.5);
 }
 
-.button:hover{
-	color: #3366FF;
-	background: #eee;
+.rbs-modern-detail.rbs-modern-blue {
+	border: 1px solid #003b93;
 }
+
+.rbs-modern-blue {
+    background-color: hsl(206, 100%, 40%);
+}
+.rbs-modern-blue:hover {
+	background-color: hsl(206, 100%, 45%);
+}
+.rbs-modern-blue:active {
+	background-color: hsl(206, 100%, 35%);
+}
+

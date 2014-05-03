@@ -1,0 +1,13 @@
+#content{
+	width: 70%;
+	height: 50%;
+	margin: auto auto;
+	text-align: center;
+	margin-top: 100px;
+}
+
+#question{
+	display: none;
+	margin: 2px 0 35px 0;
+	font-size: 40pt;
+}
