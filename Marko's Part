@@ -17,7 +17,7 @@ we would have a 50 multiplier on it*/
     operationArray[2] = "*";
     operationArray[3] = "/";
 
-    var createProblem = function(elo, input){
+    var createProblem = function(elo){
         var count = new Array();
         var operation = new Array();
         for(var q = 0; q<Math.floor(elo/(400)); q++){
@@ -56,5 +56,5 @@ we would have a 50 multiplier on it*/
         
         
     };
-createProblem(elo, 0);
+createProblem(elo);
 </script>
