@@ -8,8 +8,12 @@ we would have a 50 multiplier on it*/
 //Code:
 var createProblem = function(elo){
 
-    var problem;
-    var operationArray = ['+','-','*','/'];
+var problem;
+var operationArray = new Array();
+perationArray[0] = "+";
+    operationArray[1] = "-";
+    operationArray[2] = "*";
+    operationArray[3] = "/";
     var count = new Array();
     var operation = new Array();
     var modifier = Math.floor(elo/400);

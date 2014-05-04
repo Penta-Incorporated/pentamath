@@ -36,6 +36,9 @@ function generateProblem(rating){
 		current_ops[i] = operators[rand_int(0,3)];
 	}
 
+	for (var op in current_ops){
+		
+	}
 	
 
 }
