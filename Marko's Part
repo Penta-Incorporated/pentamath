@@ -6,7 +6,7 @@ and anything below a 50 would make you lose elo anything above would make you ga
 we would have a 50 multiplier on it*/
 
 //Code:
-   <script>
+  <script>
     var elo = 1200;
     var probAmount = 10;
     function rand_int(a,b){
@@ -26,7 +26,7 @@ we would have a 50 multiplier on it*/
         }
         for(var q = 0; q < modifier; q++){
             
-            count[q] = rand_int(1.10);
+            count[q] = rand_int(1,(elo/10));
             
         }//Create the numbers
         modifier = Math.floor(elo/600);
@@ -41,13 +41,13 @@ we would have a 50 multiplier on it*/
             else{
                 y = 2;
             }
-             operation[q] = operationArray[(rand_int(2.10)*y)];
+             operation[q] = operationArray[rand_int(0,y)];
              if(operation[q] === "*" || operation[q] === "/"){
-                 count[q+1] = rand_int(2.12);
+                 count[q+1] = rand_int(2,12);
              }
              if(operation[q] === "/"){
-                count[q-1] = rand_int(2,10);
-                count[q+1] = count[q-1] * rand_int(2,10);
+                count[q+1] = rand_int(2,10);
+                count[q-1] = count[q+1] * rand_int(2,10);
              }
          
         }//Create the operation
