@@ -6,8 +6,8 @@ and anything below a 50 would make you lose elo anything above would make you ga
 we would have a 50 multiplier on it*/
 
 //Code:
-  <script>
-    var elo = 1200;
+ <script>
+    var elo = 2400;
     var probAmount = 10;
     function rand_int(a,b){
 	return Math.round((Math.random() * (b - a)) + a);
@@ -16,7 +16,7 @@ we would have a 50 multiplier on it*/
     var createProblem = function(elo){
     
         var problem;
-        var operationArray = ['+','/','*','-'];
+        var operationArray = ['+','-','*','/'];
         var count = new Array();
         var operation = new Array();
         var modifier = Math.floor(elo/400);
@@ -29,25 +29,28 @@ we would have a 50 multiplier on it*/
             count[q] = rand_int(1,(elo/10));
             
         }//Create the numbers
-        modifier = Math.floor(elo/600);
+        modifier = Math.floor(elo/1200);
         if(modifier > 2 ){
             modifier = 2;
         }
         for(var q = 0; q < modifier; q++){
             var y = 0;
             if(count[q]%10 === 0){
-                y = 4;
+                y = 3;
             }
             else{
-                y = 2;
+                y = 1;
             }
              operation[q] = operationArray[rand_int(0,y)];
              if(operation[q] === "*" || operation[q] === "/"){
-                 count[q+1] = rand_int(2,12);
+                 var i = Math.round(elo/200);
+                 if(i > 12){
+                     i = 12;
+                 }
+                 count[q+1] = rand_int(2,i);
              }
              if(operation[q] === "/"){
-                count[q+1] = rand_int(2,10);
-                count[q-1] = count[q+1] * rand_int(2,10);
+                count[q] = count[q+1] * rand_int(2,10);
              }
          
         }//Create the operation
