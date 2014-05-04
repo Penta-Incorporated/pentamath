@@ -1,8 +1,11 @@
+html, body {
+	height:100%;
+}
 body {
 	position: relative;
 	margin: 0;
 	padding: 0;
-	background: ##F7F7F7;
+	background: #F7F7F7;
 	font-family: Verdana;
 	font-size: 14;
 }
@@ -13,21 +16,24 @@ a{
 
 #header{
 	position: relative;
-	height: 200px;
+	background-image: url('../images/header.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: rgba(83, 255, 29, 0.22);
+	height: 235px;
 	width: 100%;
-	background: #eee;
 	top: 0;
 	margin: 0;
 	padding: 0;
 }
 
 hr{
-	width: 100%;
+	width: 70%;
 	border: none;
 	background: #444;
 	position: absolute;
 	height: 1px;
-	top: 191px;
+	top: 225px;
 }
 
 .textfield{
@@ -40,7 +46,7 @@ hr{
 }
 
 .textfield:focus{
-	box-shadow: 0 0 6px 2px #3366FF;	
+	box-shadow: 0 0 4px 2px #47A3FF;	
 	border: none;
 }
 
@@ -90,3 +96,11 @@ hr{
 	background-color: hsl(206, 100%, 35%);
 }
 
+#page{
+	width: 70%;
+	height: 100%;
+	background: #DBDBDB;
+	border-left: 1px solid #444;
+	border-right: 1px solid #444;
+	margin: 0 auto;
+}
