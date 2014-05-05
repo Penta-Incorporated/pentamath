@@ -5,7 +5,6 @@
     <title>PentaMath</title>
 	<link rel='stylesheet' href='style/main.css'>
 	<link rel='stylesheet' href='style/game.css'>
-	<link rel="shortcut icon" type="image/png" href="imgaes/favicon.png"/>
 	<link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
 	<script type="text/javascript" src="js/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
@@ -29,23 +28,36 @@
 <script type='text/javascript'>
 
 	var problem;
+    var timeLeft = 10;
+    var timer = setInterval(setTime, 1000);
+
+    function setTime()
+    {
+        timeLeft--;
+        console.log(timeLeft);
+        if (timeLeft == 0)
+            clearInterval(timer);
+    }
 
 	function toTeX(str){
-		return str.replace(/\//, '\\div').replace(/\*/, '\\times');
+		return '\\(' + str.replace(/\//, '\\div').replace(/\*/, '\\times') + '\\)';
 	}
 
 	function testAnswer(){
 		var correct = eval(problem);
 		var guess = $('#ans').val();
+    
 
 		return guess == correct;
 	}
+
+
 
 	$(function() {
 
 		problem = createProblem(1400);
 		$('#question').html(
-		'\\( ' + toTeX(problem) + ' \\)'
+		toTeX(problem)
 		).delay('150').fadeIn({
 			duration: 400,
 		});
@@ -57,6 +69,5 @@
 
 </script>
 </body>
-
 
 </html>
