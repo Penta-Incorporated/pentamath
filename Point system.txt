@@ -1,0 +1,16 @@
+each question worth 3+(elo/1200) points
+multiple points by 100 to get game_rating
+
+
+if(game_rating is less than Rating){
+game_rating minus rating divided by 10
+substract that from rating
+that is your new rating
+}
+
+
+If(game_rating is great than rating){
+game_rating minus rating divided by 10
+add that to rating
+that is the new rating
+}
