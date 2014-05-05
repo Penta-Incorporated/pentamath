@@ -3,18 +3,18 @@ var timeInSecs;
 var ticker;
 
 function startTimer(secs){
-timeInSecs = parseInt(secs)-1;
-ticker = setInterval("tick()",1000);   
+	   timeInSecs = parseInt(secs)-1;
+   	ticker = setInterval("tick()",1000);   
 }
 
 function tick() {
-var secs = timeInSecs;
-if (secs>0) {
-timeInSecs--;
+   	var secs = timeInSecs;
+   	if (secs>0) {
+	   timeInSecs--;
 }
 else {
-clearInterval(ticker); 
- startTimer(10);  
+	   clearInterval(ticker); 
+	   startTimer(10);  
 }
 
 document.getElementById("countdown").innerHTML = secs;
@@ -25,4 +25,3 @@ startTimer(10);
 </script>
 
 <span id="countdown" style="font-weight: bold;">10</span>
-
