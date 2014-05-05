@@ -1,9 +1,10 @@
+<script>
 var timeInSecs;
 var ticker;
 
 function startTimer(secs){
 timeInSecs = parseInt(secs)-1;
-ticker = setInterval("tick()",1000);   // every second
+ticker = setInterval("tick()",1000);   
 }
 
 function tick() {
@@ -12,15 +13,16 @@ if (secs>0) {
 timeInSecs--;
 }
 else {
-clearInterval(ticker); // stop counting at zero
-// startTimer(60);  // remove forward slashes in front of startTimer to repeat if required
+clearInterval(ticker); 
+ startTimer(10);  
 }
 
 document.getElementById("countdown").innerHTML = secs;
 }
 
-startTimer(60);  // 60 seconds 
+startTimer(10);  
 
 </script>
 
-<span id="countdown" style="font-weight: bold;">60</span>
+<span id="countdown" style="font-weight: bold;">10</span>
+
