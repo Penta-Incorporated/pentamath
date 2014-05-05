@@ -3,21 +3,21 @@ var timeInSecs;
 var ticker;
 
 function startTimer(secs){
-	   timeInSecs = parseInt(secs)-1;
+        timeInSecs = parseInt(secs)-1;
    	ticker = setInterval("tick()",1000);   
 }
 
 function tick() {
    	var secs = timeInSecs;
    	if (secs>0) {
-	   timeInSecs--;
+	timeInSecs--;
 }
 else {
-	   clearInterval(ticker); 
-	   startTimer(10);  
+	clearInterval(ticker); 
+	startTimer(10);  
 }
 
-document.getElementById("countdown").innerHTML = secs;
+	document.getElementById("countdown").innerHTML = secs;
 }
 
 startTimer(10);  
