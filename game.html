@@ -23,15 +23,15 @@
 
 			<input id='ans' type='textfield' class='textfield' placeholder=' Your Answer'><br />
 			<a id='submit' class='rbs-button rbs-modern-detail rbs-modern-blue'>Submit</a>
-			<div id='time' data-timer='10'></div>
+			<div id='time' data-timer='11'></div>
 		</div>
 	</div>
-
 
 <script src='js/problemGen.js'></script>
 <script type='text/javascript'>
 
 	var problem;
+    window.hack = 0;
     var rating = 1400;
     var timeLeft = 10;
     var timer = setInterval(setTime, 1000);
@@ -40,6 +40,7 @@
 
     function nextQuestion()
     {
+        nextTimer();
         $('#question').fadeOut('300', function()
         {
             problem = createProblem(rating);
@@ -49,7 +50,24 @@
         });
         $('#question').fadeIn('300');
 
+
     }
+    
+    function nextTimer()
+    {
+        $('#time').fadeTo(300, 0, function()
+        {
+            $('#time').TimeCircles().restart();
+            $('#time').TimeCircles().stop();
+            $('#time').delay(1000).fadeTo(300, 1).delay('400');
+        });
+
+        window.setTimeout(function() 
+        {
+            $('#time').TimeCircles().start();
+        }, 1400);
+    }
+
 
     function initGame()
     {
@@ -68,12 +86,12 @@
         }).fadeTo(350, 1).delay('250');
     }
 
-    function showIncorrect()
+    function showIncorrect(str)
     {
         $('#question').fadeTo(350, 0, function()
         {
             document.getElementById('question').style.color = 'red';
-            document.getElementById('question').innerHTML = 'Incorrect!';
+            document.getElementById('question').innerHTML = str;
         }).fadeTo(350, 1).delay('250');
     }
     
@@ -91,19 +109,21 @@
 
 
 	function testAnswer(){
-		var correct = eval(problem);
-		var guess = $('#ans').val();
+        if (window.hack == 0){
+            var correct = eval(problem);
+            var guess = $('#ans').val();
 
-        if (guess == correct)
-        {
-            problemsRight++;
-            showCorrect();
+            if (guess == correct)
+            {
+                problemsRight++;
+                showCorrect();
 
-        }else showIncorrect();
+            }else showIncorrect('Incorrect!');
 
-        problemsDone++;
+            problemsDone++;
 
-        nextQuestion();
+            nextQuestion();
+        }
 
 	}
 
@@ -114,9 +134,21 @@
         MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
     }
 
+    //callback function for timer event listener
+    function zeroTime(unit, value, total)
+    {
+        if (total == 0)
+        {
+            window.hack = 1;
+            showIncorrect('Out of time!');
+            nextQuestion();
+        }else window.hack = 0;
+
+    }
+
+
 	$(function() {
 
-		nextQuestion();
        
 
 
@@ -132,6 +164,7 @@
 
 	$("#time").TimeCircles({
     "animation": "smooth",
+    "count_past_zero": false,
     "use_background": false,
     "fg_width": 0.04,
     "circle_bg_color": "#EEEEEE",
@@ -153,11 +186,15 @@
         },
         "Seconds": {
             "text": "Seconds",
-            "color": "#CCCCCC",
+            "color": "#2CCF17",
             "show": true
         }
     },
-    "total_duration": 10});
+    "total_duration": 11});
+	
+    $('#time').css('visibility', 'visible');
+    $('#time').TimeCircles().addListener(zeroTime);
+    nextQuestion();
         
   	});
 
