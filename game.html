@@ -6,6 +6,10 @@
 	<link rel='stylesheet' href='style/main.css'>
 	<link rel='stylesheet' href='style/game.css'>
 	<link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
+    <link rel='stylesheet' href='style/TimeCircles.css' />
+	<script src='js/jquery.js'></script>
+    <script src="http://use.edgefonts.net/nunito.js"></script>
+    <script type='text/javascript' src='js/TimeCircles.js'></script>
 	<script type="text/javascript" src="js/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 
@@ -17,20 +21,62 @@
 		<div id='content'>
 			<div id='question'></div>
 
-			<input id='ans' type='textfield' class='textfield' placeholder='Your Answer'><br />
+			<input id='ans' type='textfield' class='textfield' placeholder=' Your Answer'><br />
 			<a id='submit' class='rbs-button rbs-modern-detail rbs-modern-blue'>Submit</a>
+			<div id='time' data-timer='10'></div>
 		</div>
 	</div>
 
 
 <script src='js/problemGen.js'></script>
-<script src='js/jquery.js'></script>
 <script type='text/javascript'>
 
 	var problem;
+    var rating = 1400;
     var timeLeft = 10;
     var timer = setInterval(setTime, 1000);
+    var problemsRight = 0;
+    var problemsDone = 0;
 
+    function nextQuestion()
+    {
+        $('#question').fadeOut('300', function()
+        {
+            problem = createProblem(rating);
+            displayProblem();
+            $('#ans').val('');
+               
+        });
+        $('#question').fadeIn('300');
+
+    }
+
+    function initGame()
+    {
+        return false;
+    }
+
+
+   //functions to display correct or incorrect
+
+    function showCorrect()
+    {
+        $('#question').fadeTo(350, 0, function()
+        {
+            document.getElementById('question').style.color = 'green';
+            document.getElementById('question').innerHTML = 'Correct!';
+        }).fadeTo(350, 1).delay('250');
+    }
+
+    function showIncorrect()
+    {
+        $('#question').fadeTo(350, 0, function()
+        {
+            document.getElementById('question').style.color = 'red';
+            document.getElementById('question').innerHTML = 'Incorrect!';
+        }).fadeTo(350, 1).delay('250');
+    }
+    
     function setTime()
     {
         timeLeft--;
@@ -43,31 +89,80 @@
 		return '\\(' + str.replace(/\//, '\\div').replace(/\*/, '\\times') + '\\)';
 	}
 
+
 	function testAnswer(){
 		var correct = eval(problem);
 		var guess = $('#ans').val();
-    
 
-		return guess == correct;
+        if (guess == correct)
+        {
+            problemsRight++;
+            showCorrect();
+
+        }else showIncorrect();
+
+        problemsDone++;
+
+        nextQuestion();
+
 	}
 
 
+    function displayProblem()
+    {
+        $('#question').html(toTeX(problem)).css('color', 'black');
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    }
 
 	$(function() {
 
-		problem = createProblem(1400);
-		$('#question').html(
-		toTeX(problem)
-		).delay('150').fadeIn({
-			duration: 400,
-		});
+		nextQuestion();
+       
+
 
 		$('#submit').on('click', function() {
-			console.log(testAnswer());
+			testAnswer();
 		});
+
+        $('#ans').keyup(function(e) {
+            if (e.keyCode == 13) {
+                testAnswer();
+            }
+        });
+
+	$("#time").TimeCircles({
+    "animation": "smooth",
+    "use_background": false,
+    "fg_width": 0.04,
+    "circle_bg_color": "#EEEEEE",
+    "time": {
+        "Days": {
+            "text": "Days",
+            "color": "#CCCCCC",
+            "show": false
+        },
+        "Hours": {
+            "text": "Hours",
+            "color": "#CCCCCC",
+            "show": false
+        },
+        "Minutes": {
+            "text": "Minutes",
+            "color": "#CCCCCC",
+            "show": false
+        },
+        "Seconds": {
+            "text": "Seconds",
+            "color": "#CCCCCC",
+            "show": true
+        }
+    },
+    "total_duration": 10});
+        
   	});
 
 </script>
 </body>
 
 </html>
+

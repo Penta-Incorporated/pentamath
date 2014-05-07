@@ -7,7 +7,20 @@
 }
 
 #question{
+    font-family: Inherit;
 	display: none;
 	margin: 2px 0 35px 0;
-	font-size: 40pt;
+	font-size: 320%;
+}
+
+#time{
+    font-size: 30pt;
+    height: 200px;
+    width: 200px;
+    margin: 30px auto;
+}
+
+#ans 
+{
+    font-family: Inherit;
 }

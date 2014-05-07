@@ -26,7 +26,7 @@ var createProblem = function(elo){
 	}
 	for(var q = 0; q < (modifier + 1); q++){
 
-	    count[q] = rand_int(1,(elo/10));
+	    count[q] = rand_int(2,(elo/10));
 
 	}//Create the numbers
 	for(var q = 0; q < modifier; q++){
@@ -37,11 +37,11 @@ var createProblem = function(elo){
 				operation[q] = operationArray[rand_int(0,3)];
 			 }
 	     if(operation[q] === "*"){
-	         count[q+1] = Math.round(count[q] / (elo/100));
+	         count[q+1] = Math.ceil(count[q] / (elo/100)) + 1;
 	     }
 	     if(operation[q] === "/"){
-		count[q+1] = Math.round(count[q+1]/8);
-		count[q] = count[q+1] * rand_int(2,10);
+            count[q+1] = Math.ceil(count[q+1]/8) + 1;
+            count[q] = count[q+1] * rand_int(2,10);
 	     }
 
 	}//Create the operation
