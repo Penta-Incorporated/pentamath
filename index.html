@@ -2,19 +2,26 @@
 <head>
 	<title> PentaMath </title>
 	<link rel='stylesheet' href='style/main.css' type='text/css' />
+	<link rel='stylesheet' href='style/login.css' typle='text/css' />
 	<link rel="shortcut icon" type="image/png" href="favicon.png"/>
 	<link rel="shortcut icon" type="image/png" href="favicon.png"/>
 </head>
 
 <body>
 	
-	<div id="header"></div>
-	<hr />
-	<div id='content'>
-		<input type='textfield' class='textfield' placeholder='E-Mail Address'>
-		<a href='#'><span class='button'>Button</span></a>
+	<div id='page'>
+		<div id='header'></div>
+		<hr />
+
+		<div id='login'>
+			<p id='welcome'>
+				Welcome to PentaMath enter a username
+			</p>
+			<input id='username' type='textfield' class='textfield' placeholder=' Username'><br />
+			<a id='submit' class='rbs-button rbs-modern-detail rbs-modern-blue'>Submit</a>
+		</div>
 	</div>
-<script src='problemGen.js'></script>
+<script src='login.js'></script>
 
 </body>
 </html>
