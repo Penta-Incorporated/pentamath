@@ -7,7 +7,7 @@ $db_name = "pentamath";
 
 $con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or die("Could not connect to MySQL");
 
-$result = mysqli_query($con,"SELECT * FROM scoreboard ORDER BY rating DESC LIMIT 5");
+$result = mysqli_query($con,"SELECT * FROM scoreboard");
 
 while($row = mysqli_fetch_array($result)) {
 	echo $row['name'] . " " . $row['rating'];

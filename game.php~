@@ -62,7 +62,7 @@ mysqli_close($con);
 	 function getUserData(){
 		user_id_temp = $.cookie('id');
 		if (user_id_temp != undefined){
-			user_id = user_id_temp;	
+			user_id = parseInt(user_id_temp);	
 		}
 		user_name = $.cookie('name');
 		user_rating = $.cookie('rating');
@@ -70,7 +70,7 @@ mysqli_close($con);
 
 		if(user_rating == undefined){
 			user_rating = 1000;
-		}
+		}else user_rating = parseInt(user_rating);
 	 }
 
 	 function updateUserData(){

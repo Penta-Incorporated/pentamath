@@ -1,0 +1,36 @@
+#login{
+	position: relative;
+	margin: 0;
+	padding: 0 auto;
+	width: 100%;
+	background-size: contain;
+	text-align: center;
+}
+#scoreboarddiv{
+	width: 50%;
+	height: auto;
+  	margin: 0 auto;
+	background: #F2F2F2;
+	border-radius: 2px;
+}
+
+#scoreboard{
+	padding-bottom: 40px;
+	margin: 0 auto;
+	width: 70%;
+}
+
+#scoreboard th{
+	background: #444;
+	color: #aaa;
+}
+
+#scoreboard tr{
+	padding: 3px;
+}
+
+#scoreboard tr td{
+	text-align: center;
+	padding: 3px;
+	border: 1px solid #444;
+}

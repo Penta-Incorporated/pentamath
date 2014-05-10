@@ -1,0 +1,58 @@
+<html>
+<head>
+	<title> PentaMath </title>
+	<link rel='stylesheet' href='style/main.css' type='text/css' />
+	<link rel='stylesheet' href='style/scoreboard.css' typle='text/css' />
+	<link rel="shortcut icon" type="image/png" href="favicon.png"/>
+	<link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
+</head>
+
+<body>
+	
+	<div id='page'>
+		<div id='header'></div>
+		<hr />
+
+		<div id='login'>
+			<p id='welcome'>
+				PentaMath Top Rankings!
+			</p>
+				<div id='scoreboarddiv'>
+					<p>Top 5</p>
+					<table id='scoreboard'>
+
+						<tr>
+  							<th>Name</th>
+  							<th>Rating</th> 
+						</tr>
+
+
+						<?php
+													
+							$db_host = "localhost";
+							$db_username = "root";
+							$db_pass = "";
+							$db_name = "pentamath";
+
+							$con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or die("Could not connect to MySQL");
+
+							$result = mysqli_query($con,"SELECT * FROM scoreboard ORDER BY rating DESC LIMIT 5");
+
+							while($row = mysqli_fetch_array($result)) {
+								echo "<tr>";
+								echo "<td>" . $row['name'] . "</td>" . "<td>" . $row['rating'] . "</td>";
+								echo "</tr>";
+							}
+
+
+							mysqli_close($con);		
+		
+						?>
+					</table>
+				</div>
+		</div>
+	</div>
+<script src='login.js'></script>
+
+</body>
+</html>
