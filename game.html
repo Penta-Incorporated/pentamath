@@ -30,22 +30,49 @@
 <script src='js/problemGen.js'></script>
 <script type='text/javascript'>
 
-	var problem;
+    var problem;
+	 var user_name;
     window.hack = 0;
-    var rating = 1400;
+    var user_rating = 1400;
     var problemsRight = 0;
     var problemsDone = 0;
 
+	 function update_scoreboard(){
+		getUserName();
+		$.ajax({
+			url: 'update_scoreboard.php',
+			type: 'POST',
+			data:
+			{
+				name: user_name,
+				rating: user_rating
+			},
+			success: function(){return false;}
+		});
+	}
+
+
+	 function getUserName(){
+			var tempname = window.prompt("Enter your name", "Anonymous");
+			while (tempname.length > 21){
+				window.alert("Maximum 20 characters"); 
+				tempname = window.prompt("Enter your name", "Anonymous");
+			}
+
+			user_name = tempname;
+	 }
+
+
     function nextQuestion()
     {
-        if(problemsDone == 3)
+        if(problemsDone == 10)
         {
             gameOver();
         }else{
         nextTimer();
         $('#question').fadeOut('300', function()
         {
-            problem = createProblem(rating);
+            problem = createProblem(user_rating);
             displayProblem();
             $('#ans').val('');
                
@@ -66,7 +93,9 @@
             $('#time').TimeCircles().stop();
             $('#time').fadeTo(300, 0);
             $('#ans').fadeTo(300, 0);
+		  		update_scoreboard();
         }, 3000);
+
     }
 
 
