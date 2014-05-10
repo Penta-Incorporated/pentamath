@@ -6,6 +6,7 @@
 	background-size: contain;
 	text-align: center;
 }
+<<<<<<< HEAD
 #scoreboarddiv{
 	width: 50%;
 	height: auto;
@@ -22,7 +23,7 @@
 
 #scoreboard th{
 	background: #444;
-	color: #aaa;
+	color: #ccc;
 }
 
 #scoreboard tr{
@@ -33,4 +34,11 @@
 	text-align: center;
 	padding: 3px;
 	border: 1px solid #444;
+=======
+#scoreboard{
+	width: 50%;
+	height: 200px;
+  margin: 0 auto;
+	background: #FFFFFF;
+>>>>>>> ef722fdb9c20df99b2b320df5198a7dfba258750
 }
